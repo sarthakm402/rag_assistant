@@ -8,7 +8,7 @@ class Pdfloader:
         for page_num in range(len(doc)):
             page = doc[page_num]
             text = page.get_text()
-            text = Textcleaner.clean(text)
+            text = Textcleaner.clean_text(text)
             pages.append(
                 {
                     "page": page_num + 1,
