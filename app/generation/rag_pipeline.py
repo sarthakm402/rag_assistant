@@ -1,12 +1,17 @@
 from app.retrieval.retriever import Retriever
 from app.generation.llm import LLM
+from app.retrieval.reranker import Reranker
+
 
 
 class RAGPipeline:
 
     def __init__(self):
-
-        self.retriever = Retriever()
+        self.retriever = Retriever(
+            embedder=self.embedder,
+            vector_store=self.vector_store
+        )
+        self.reranker = Reranker()
         self.llm = LLM()
 
     def ask(
@@ -16,10 +21,15 @@ class RAGPipeline:
     ):
 
         results = self.retriever.retrieve(
-            query,
-            top_k
+         query,
+         top_k=20
         )
 
+        results = self.reranker.rerank(
+         query=query,
+         results=results,
+         top_k=5
+        )
         context = "\n\n".join(
             result.payload["text"]
             for result in results

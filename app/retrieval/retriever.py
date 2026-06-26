@@ -4,9 +4,10 @@ from app.vectorstore.qdrant_store import QdrantStore
 
 class Retriever:
 
-    def __init__(self):
-        self.embedder = Embedder()
-        self.store = QdrantStore()
+    def __init__(self, embedder:Embedder,
+        vector_store:QdrantStore):
+        self.embedder = embedder
+        self.store =vector_store
 
     def retrieve(
         self,

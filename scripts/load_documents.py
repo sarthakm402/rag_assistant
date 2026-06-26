@@ -2,7 +2,8 @@ import json
 
 from app.embeddings.embedder import Embedder
 from app.vectorstore.qdrant_store import QdrantStore
-
+from app.utils.logger import get_logger
+logger=get_logger(__name__)
 
 def main():
 
@@ -18,7 +19,7 @@ def main():
         for chunk in chunks
     ]
 
-    print("Generating embeddings...")
+    logger.info("Generating embeddings...")
 
     embedder = Embedder()
 
@@ -26,7 +27,7 @@ def main():
         texts
     )
 
-    print(
+    logger.info(
         f"Generated {len(embeddings)} embeddings"
     )
 
@@ -36,14 +37,14 @@ def main():
         vector_size=len(embeddings[0])
     )
 
-    print("Uploading to Qdrant...")
+    logger.info("Uploading to Qdrant...")
 
     store.insert_batch(
         chunks,
         embeddings
     )
 
-    print("Done")
+    logger.info("Done")
 
 
 if __name__ == "__main__":

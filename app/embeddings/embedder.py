@@ -1,9 +1,10 @@
 from sentence_transformers import SentenceTransformer
+from app.configs.settings import settings
 class Embedder:
 
     def __init__(
         self,
-        model_name: str = "BAAI/bge-small-en-v1.5"
+        model_name: str=settings.embedding_model
     ):
         self.model = SentenceTransformer(model_name)
 

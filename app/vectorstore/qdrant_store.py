@@ -4,19 +4,20 @@ from qdrant_client.models import (
     VectorParams,
     PointStruct
 )
+from app.configs.settings import settings
 
 
 class QdrantStore:
 
     def __init__(
         self,
-        collection_name: str = "documents"
+        collection_name: str = settings.collection_name
     ):
         self.collection_name = collection_name
 
         self.client = QdrantClient(
-            host="localhost",
-            port=6333
+            settings.qdrant_host,
+            settings.qdrant_port
         )
 
     def create_collection(
