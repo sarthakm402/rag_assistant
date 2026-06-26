@@ -28,6 +28,7 @@ class CharacterChunker(BaseChunker):
 
                 chunks.append({
                     "chunk_id": str(uuid.uuid4()),
+                    "source": page["source"],
                     "page": page_num,
                     "text": chunk_text
                 })

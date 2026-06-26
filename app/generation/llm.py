@@ -13,7 +13,8 @@ class LLM:
     def generate(
         self,
         query: str,
-        context: str
+        context: str,
+        history:str
     ) -> str:
 
         prompt = f"""
@@ -23,6 +24,9 @@ Answer ONLY using the provided context.
 
 If the answer is not present in the context, say:
 "I could not find that information in the provided documents."
+Conversation History:
+{history}
+
 
 Context:
 {context}

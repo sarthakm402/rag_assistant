@@ -76,7 +76,7 @@ class QdrantStore:
             PointStruct(
                 id=idx,
                 vector=embedding,
-                payload={
+                payload={"source": chunk["source"],
                     "page": chunk["page"],
                     "text": chunk["text"]
                 }
