@@ -15,6 +15,10 @@ class Settings:
         "LLM_MODEL",
         "gemma3:4b"
     )
+    reranker_mode:str=os.getenv(
+        "RERANKER_MODEL",
+        "cross-encoder/ms-marco-MiniLM-L-6-v2"
+    )
 
     # Qdrant
     qdrant_host: str = os.getenv(
