@@ -39,4 +39,17 @@ class BM25Retriever:
             reverse=True
         )
 
-        return scored_chunks[:top_k]
+        results = []
+
+        for chunk, score in scored_chunks[:top_k]:
+
+         results.append(
+        {
+            "text": chunk["text"],
+            "source": chunk["source"],
+            "page": chunk["page"],
+            "score": float(score),
+        }
+    )
+
+        return results

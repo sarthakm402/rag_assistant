@@ -22,4 +22,16 @@ class Retriever:
             query=query_embedding,
             limit=top_k
         )
-        return results.points
+        formatted_results = []
+
+        for result in results.points:
+         formatted_results.append(
+        {
+            "text": result.payload["text"],
+            "source": result.payload["source"],
+            "page": result.payload["page"],
+            "score": float(result.score),
+        }
+    )
+
+        return formatted_results
