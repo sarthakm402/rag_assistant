@@ -1,73 +1,88 @@
-from app.retrieval.retriever import Retriever
 from app.generation.llm import LLM
-from app.retrieval.reranker import Reranker
 from app.memory.chat_memory import ChatMemory
-
+from app.retrieval.hybrid_retriever import HybridRetriever
+from app.retrieval.reranker import Reranker
 
 
 class RAGPipeline:
 
     def __init__(self):
-        self.retriever = Retriever(
-            embedder=self.embedder,
-            vector_store=self.vector_store
-        )
+
+        self.retriever = HybridRetriever()
         self.reranker = Reranker()
         self.llm = LLM()
         self.memory = ChatMemory()
 
     def ask(
-     self,
-     query: str,
-     top_k: int = 5
+        self,
+        query: str,
+        top_k: int = 5
     ):
 
-     results = self.retriever.retrieve(
-        query,
-        top_k
-    )
-     history = "\n".join(
-    f"{msg['role']}: {msg['content']}"
-    for msg in self.memory.get_history()
-)
-     context = "\n\n".join(
-        result.payload["text"]
-        for result in results
-    )
-
-     answer = self.llm.generate(
-        query=query,
-        context=context,
-        history=history
-    )
-     self.memory.add_user_message(query)
-     self.memory.add_assistant_message(answer)
-
-     sources = []
-
-     seen = set()
-
-     for result in results:
-
-        source = (
-            result.payload["source"],
-            result.payload["page"]
+        # Hybrid Retrieval
+        results = self.retriever.retrieve(
+            query=query,
+            top_k=20
         )
 
-        if source not in seen:
+        # Rerank
+        results = self.reranker.rerank(
+            query=query,
+            results=results,
+            top_k=top_k
+        )
 
-            seen.add(source)
+        # Conversation History
+        history = "\n".join(
+            f"{msg['role']}: {msg['content']}"
+            for msg in self.memory.get_history()
+        )
 
-            sources.append(
-                {
-                    "source": result.payload["source"],
-                    "page": result.payload["page"],
-                    "score": round(result.score, 3)
-                }
+        # Build Context
+        context = "\n\n".join(
+            result["text"]
+            for result in results
+        )
+
+        # Generate Answer
+        answer = self.llm.generate(
+            query=query,
+            context=context,
+            history=history
+        )
+
+        # Save Conversation
+        self.memory.add_user_message(query)
+        self.memory.add_assistant_message(answer)
+
+        # Build Sources
+        sources = []
+
+        seen = set()
+
+        for result in results:
+
+            source = (
+                result["source"],
+                result["page"]
             )
-        
 
-     return {
-        "answer": answer,
-        "sources": sources
-    }
+            if source not in seen:
+
+                seen.add(source)
+
+                sources.append(
+                    {
+                        "source": result["source"],
+                        "page": result["page"],
+                        "score": round(
+                            result["rerank_score"],
+                            3
+                        )
+                    }
+                )
+
+        return {
+            "answer": answer,
+            "sources": sources
+        }

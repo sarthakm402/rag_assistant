@@ -1,5 +1,7 @@
 from sentence_transformers import CrossEncoder
+
 from app.configs.settings import settings
+
 
 class Reranker:
 
@@ -15,21 +17,25 @@ class Reranker:
         results: list,
         top_k: int = 5
     ):
-        """
-        Re-rank retrieved documents using a cross-encoder.
-        """
 
         pairs = [
-            (query, result.payload["text"])
+            (query, result["text"])
             for result in results
         ]
 
         scores = self.model.predict(pairs)
 
-        ranked = sorted(
-            zip(results, scores),
-            key=lambda x: x[1],
+        ranked = []
+
+        for result, score in zip(results, scores):
+
+            result["rerank_score"] = float(score)
+
+            ranked.append(result)
+
+        ranked.sort(
+            key=lambda x: x["rerank_score"],
             reverse=True
         )
 
-        return [result for result, _ in ranked[:top_k]]
+        return ranked[:top_k]
