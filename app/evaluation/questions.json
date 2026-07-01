@@ -1,0 +1,14 @@
+[
+  {
+    "question": "Summarize the candidate's experience."
+  },
+  {
+    "question": "What machine learning frameworks are mentioned?"
+  },
+  {
+    "question": "What databases are used?"
+  },
+  {
+    "question": "What is Apache Spark?"
+  }
+]

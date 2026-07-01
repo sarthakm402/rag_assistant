@@ -1,11 +1,9 @@
 from fastapi import APIRouter
 
 from app.api.schemas import QueryRequest, QueryResponse
-from app.services.rag_service import RAGService
+from app.core.dependencies import get_rag_service
 
 router = APIRouter()
-
-rag_service = RAGService()
 
 
 @router.post(
@@ -15,6 +13,8 @@ rag_service = RAGService()
 def query(
     request: QueryRequest
 ):
+
+    rag_service = get_rag_service()
 
     response = rag_service.ask(
         request.query
