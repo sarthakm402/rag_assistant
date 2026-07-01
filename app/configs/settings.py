@@ -39,6 +39,9 @@ class Settings:
     top_k: int = int(
         os.getenv("TOP_K", 5)
     )
+    redis_host:str=os.getenv("REDIST_HOST",'redist')
+    redis_post:int=int(os.getenv("REDIS_POST",6379))
+    redis_db:int=int(os.getenv("REDIS_DB",0))
 
 
 settings = Settings()

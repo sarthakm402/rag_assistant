@@ -2,7 +2,7 @@ from app.generation.llm import LLM
 from app.memory.chat_memory import ChatMemory
 from app.retrieval.hybrid_retriever import HybridRetriever
 from app.retrieval.reranker import Reranker
-
+from app.memory.redis_memory import RedisMemory
 
 class RAGPipeline:
 
@@ -11,7 +11,7 @@ class RAGPipeline:
         self.retriever = HybridRetriever()
         self.reranker = Reranker()
         self.llm = LLM()
-        self.memory = ChatMemory()
+        self.memory = RedisMemory()
 
     def ask(
         self,
