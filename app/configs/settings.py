@@ -15,7 +15,7 @@ class Settings:
         "LLM_MODEL",
         "gemma3:4b"
     )
-    reranker_mode:str=os.getenv(
+    reranker_model:str=os.getenv(
         "RERANKER_MODEL",
         "cross-encoder/ms-marco-MiniLM-L-6-v2"
     )
@@ -39,8 +39,11 @@ class Settings:
     top_k: int = int(
         os.getenv("TOP_K", 5)
     )
-    redis_host:str=os.getenv("REDIST_HOST",'redist')
-    redis_post:int=int(os.getenv("REDIS_POST",6379))
+    redis_host: str = os.getenv(
+    "REDIS_HOST",
+    "localhost"
+)
+    redis_port:int=int(os.getenv("REDIS_PORT",6379))
     redis_db:int=int(os.getenv("REDIS_DB",0))
 
 

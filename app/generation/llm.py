@@ -1,12 +1,11 @@
 import ollama
-from app.configs.settings import settings
 
 
 class LLM:
 
     def __init__(
         self,
-        model_name: str = settings.llm_model
+        model_name: str = "gemma3:4b"
     ):
         self.model_name = model_name
 
@@ -20,20 +19,18 @@ class LLM:
         prompt = f"""
 You are a helpful assistant.
 
-Answer ONLY using the provided context.
+Answer ONLY using the provided context and make it relaated to question do not just retrun the same fdocs u found from chunks use them to form a coherent answer.
 
 If the answer is not present in the context, say:
 "I could not find that information in the provided documents."
-Conversation History:
-{history}
-
 
 Context:
 {context}
 
 Question:
 {query}
-
+History:
+{history}
 Answer:
 """
 

@@ -16,8 +16,8 @@ class QdrantStore:
         self.collection_name = collection_name
 
         self.client = QdrantClient(
-            settings.qdrant_host,
-            settings.qdrant_port
+            host=settings.qdrant_host,
+            port=settings.qdrant_port
         )
 
     def create_collection(

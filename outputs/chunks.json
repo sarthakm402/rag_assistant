@@ -1,0 +1,86 @@
+[
+  {
+    "chunk_id": "3567e2db-f98f-4f28-a49d-744bc4153604",
+    "source": "Sarthak_Resume.pdf",
+    "page": 1,
+    "text": "Sarthak Mohapatra +91-9211606528 — sarthakm402@gmail.com — LinkedIn — GitHub Summary Gen AI Engineer with hands-on experience building production multi-agent systems, LLM-powered pipelines, and scalable data infrastructure. Specialised in LangGraph orchestration, agentic system design, and LLM integration for real-world automation. Currently building an end-to-end agentic data pipeline on Databricks that autonomously generates, validates, and self-heals PySpark workflows. Experience Software Eng"
+  },
+  {
+    "chunk_id": "e62cc190-07f4-4731-bb29-c35fbe8fbf90",
+    "source": "Sarthak_Resume.pdf",
+    "page": 1,
+    "text": "ks that autonomously generates, validates, and self-heals PySpark workflows. Experience Software Engineer July 2025 – Present Veersa Technologies New Delhi • Designed multi-layer (Bronze-Silver-Gold) data pipelines on Databricks for large-scale healthcare datasets, powering downstream ML and analytics workflows. • Built schema validation and data quality frameworks including null handling, consistency checks, and anomaly detection — directly applicable to LLM data preparation and context retriev"
+  },
+  {
+    "chunk_id": "2e7a4d36-33b8-42ef-bbd6-90fed1c7eac4",
+    "source": "Sarthak_Resume.pdf",
+    "page": 1,
+    "text": "ency checks, and anomaly detection — directly applicable to LLM data preparation and context retrieval pipelines. • Engineered batch ETL systems using PySpark with emphasis on scalability, observability, and maintainability in a production healthcare environment. • Diagnosed and resolved recurring pipeline failures, improving system reliability and reducing client-facing incidents. Game Data Scientist Intern Mar 2025 – July 2025 Red Panda Games • Contributed to a multi-modal AI pipeline integrat"
+  },
+  {
+    "chunk_id": "cd46ae4c-cc3f-44f4-9638-7bcdd2b21a9a",
+    "source": "Sarthak_Resume.pdf",
+    "page": 1,
+    "text": "tist Intern Mar 2025 – July 2025 Red Panda Games • Contributed to a multi-modal AI pipeline integrating LLMs, image generation models, and 3D data workflows — early hands-on experience with cross-modal Gen AI systems. • Owned end-to-end 3D asset optimization pipeline using headless Blender, enabling automated polygon reduction at scale. • Built S3-integrated ingestion and processing system with tracking and monitoring for scalable asset workflows. Projects End-to-End Agentic Data Pipeline — Data"
+  },
+  {
+    "chunk_id": "fe1b8949-34c0-4d90-bbcf-aed7c99e06fd",
+    "source": "Sarthak_Resume.pdf",
+    "page": 1,
+    "text": "acking and monitoring for scalable asset workflows. Projects End-to-End Agentic Data Pipeline — Databricks 2026 – Present LangGraph, PySpark, FastAPI, Databricks, Delta Lake, Claude/GPT-4o, NetworkX, PostgreSQL • Built the planning, orchestration, validation, and deployment framework for an internal agentic data-pipeline platform from a single json. • Built the Orchestrator —Built the orchestration engine coordinating planning, code generation, validation, deployment, and debugging workflows acr"
+  },
+  {
+    "chunk_id": "f5172c6f-0cb6-4f65-8611-2e540821e8ea",
+    "source": "Sarthak_Resume.pdf",
+    "page": 1,
+    "text": "n engine coordinating planning, code generation, validation, deployment, and debugging workflows across pipeline stages. (plan →generate →validate →deploy →debug →rerun), with retry logic, partial failure handling, and inter-agent state propagation. • Designed the Planner Agent using Pydantic classes to construct dependency-resolved DAGs from metadata contracts. • Built the Spec Service (FastAPI + Pydantic v2) as the system entry point — validating all incoming pipeline configs before any downst"
+  },
+  {
+    "chunk_id": "0e592d9a-29c7-427e-bcc7-8096df55ebf2",
+    "source": "Sarthak_Resume.pdf",
+    "page": 1,
+    "text": " Pydantic v2) as the system entry point — validating all incoming pipeline configs before any downstream agent is invoked. • Engineered GitHub and Databricks managers for automated repo syncing and job dispatch, enabling end-to-end CI/CD for generated PySpark scripts across medallion layers. • Building the Debugger Agent — uses LLM to analyse Spark error traces, identify root cause, and generate targeted code patches, minimising MTTR without full pipeline reruns. Agentic AI Surgical Assistant Fe"
+  },
+  {
+    "chunk_id": "bace1d79-eb3e-40a1-bf84-6fcc110e04a7",
+    "source": "Sarthak_Resume.pdf",
+    "page": 1,
+    "text": "argeted code patches, minimising MTTR without full pipeline reruns. Agentic AI Surgical Assistant Feb 2026 Top 8 — Agentic AI Hackathon"
+  },
+  {
+    "chunk_id": "3de3f562-c751-4f3f-90c3-018f760efd07",
+    "source": "Sarthak_Resume.pdf",
+    "page": 2,
+    "text": "• Designed a multi-agent system with passive, active, and focused operating modes for real-time surgical decision support — handling dynamic context switching under time-critical conditions. • Built an event-driven pipeline integrating anomaly detection with LLM reasoning, enabling intelligent, context-aware responses to intraoperative events. • Architected structured inter-agent communication workflows to coordinate autonomous agents without human intervention. FastAPI ML Inference Gateway Jan "
+  },
+  {
+    "chunk_id": "102d8060-bf1f-4580-9292-9ce53c4e7083",
+    "source": "Sarthak_Resume.pdf",
+    "page": 2,
+    "text": "kflows to coordinate autonomous agents without human intervention. FastAPI ML Inference Gateway Jan 2026 FastAPI, Scikit-learn, IsolationForest, Pydantic, Joblib • Built a modular ML inference gateway supporting JSON, CSV, and form-based inputs with dynamic query routing to direct requests to appropriate model endpoints. • Integrated IsolationForest-based anomaly detection with Pydantic request validation for robust, production-like request handling. • Designed extensible architecture with seria"
+  },
+  {
+    "chunk_id": "55580679-0113-4777-86cf-8ba0b2e95931",
+    "source": "Sarthak_Resume.pdf",
+    "page": 2,
+    "text": "lidation for robust, production-like request handling. • Designed extensible architecture with serialised model loading via Joblib and multithreaded request handling for scalable inference. 1B Parameter Model Fine-Tuning under 4GB VRAM Feb 2026 PyTorch, LoRA, HuggingFace Transformers • Fine-tuned a 1B parameter LLM on consumer-grade hardware using LoRA — achieving a 66% improvement in embedding quality (15% →25% cosine similarity) without full model retraining. • Built a custom evaluation framew"
+  },
+  {
+    "chunk_id": "a9d02c73-2ee9-4083-bbc1-034722bfbe99",
+    "source": "Sarthak_Resume.pdf",
+    "page": 2,
+    "text": "ality (15% →25% cosine similarity) without full model retraining. • Built a custom evaluation framework to benchmark optimization impact across model checkpoints, enabling data-driven fine-tuning decisions. • Demonstrated practical understanding of LLM fundamentals: tokenization, embedding spaces, parameter-efficient training, and VRAM constraints. Technical Skills • Gen AI & LLMs: LangGraph, Multi-Agent Orchestration, Prompt Engineering, Fine-tuning (LoRA), Embeddings, LLM Integration (OLLAMA,G"
+  },
+  {
+    "chunk_id": "8e97a4a2-799b-4ac2-bd01-eab6c86d26e7",
+    "source": "Sarthak_Resume.pdf",
+    "page": 2,
+    "text": "i-Agent Orchestration, Prompt Engineering, Fine-tuning (LoRA), Embeddings, LLM Integration (OLLAMA,Gemini),MCP,Claude code • ML & AI: PyTorch, TensorFlow, HuggingFace Transformers, NLP, Scikit-learn, XGBoost • Data Engineering: PySpark, Databricks, ETL Pipelines, Data Modeling, Apache Spark • Backend & Infra: FastAPI, Flask, Docker, Linux, REST APIs, S3 • Languages: Python, SQL Education Maharaja Surajmal Institute of Technology (GGSIPU) New Delhi B.Tech in Information Technology 2022 – 2026 CGP"
+  },
+  {
+    "chunk_id": "9907792e-d7ae-4449-90e3-2bb5a4dd3271",
+    "source": "Sarthak_Resume.pdf",
+    "page": 2,
+    "text": "Surajmal Institute of Technology (GGSIPU) New Delhi B.Tech in Information Technology 2022 – 2026 CGPA: 8.86/10 Achievements • Top 8 — Agentic AI Hackathon: Built real-time multi-agent decision system under competition constraints • Competed in 8+ hackathons focused on AI/ML systems, consistently shipping functional prototypes"
+  }
+]
